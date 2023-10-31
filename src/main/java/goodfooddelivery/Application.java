@@ -1,4 +1,4 @@
-package goodfooddelivery.springboot;
+package goodfooddelivery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
