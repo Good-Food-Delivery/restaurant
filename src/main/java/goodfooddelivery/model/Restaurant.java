@@ -18,7 +18,17 @@ public class Restaurant {
     private String description;
 
 
-    public Restaurant(){}
+    public Restaurant(Long restaurantId, String name, String description)
+    {
+        this.restaurantId = restaurantId;
+        this.name = name;
+        this.description = description;
+    }
+
+
+    public Restaurant()
+    {
+    }
 
     public Long getRestaurantId() {
         return restaurantId;
