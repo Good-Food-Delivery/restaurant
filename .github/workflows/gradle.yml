@@ -106,7 +106,7 @@ jobs:
       run: ./gradlew build -x test
 
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@v1
+      uses: sonarsource/sonarcloud-github-action@master
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         
