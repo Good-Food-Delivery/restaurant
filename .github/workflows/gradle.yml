@@ -78,12 +78,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      # - name: Build and push Docker image
-      #   run: |
-      #     cd $GITHUB_WORKSPACE  # Ensure you're in the root of the repository
-      #     docker build -t drprofessorowl/goodfooddelivery:latest -f Dockerfile .
-      #     docker push drprofessorowl/goodfooddelivery:latest
-
       - name: Build and push Docker image
         run: |
           docker build -t drprofessorowl/goodfooddelivery:latest .
