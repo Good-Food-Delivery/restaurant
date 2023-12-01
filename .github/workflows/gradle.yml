@@ -127,10 +127,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          
       - name: Publish to Docker Hub
-        uses: docker/build-push-action@v2
-        with:
-          file: ./Dockerfile
-          context: ./build/libs
-          push: true
-          tags: drprofessorowl/goodfooddelivery:latest
+        run: |
+         docker build -t drprofessorowl/goodfooddelivery:latest .
+         docker push drprofessorowl/goodfooddelivery:latest
