@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  Sonarcloud:
+  BuildAndAnalyze:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -62,7 +62,7 @@ jobs:
 
   BuildAndPushDockerImage:
     runs-on: ubuntu-latest
-    needs: Sonarcloud
+    needs: BuildAndAnalyze
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
