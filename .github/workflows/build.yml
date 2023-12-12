@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  BuildAndAnalyze:
+  BuildAndTest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -48,6 +48,9 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
+      - name: Run tests
+        run: ./gradlew test  # Assuming this runs your project's tests
+
       - name: Build and analyze with SonarCloud
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -62,7 +65,7 @@ jobs:
 
   BuildAndPushDockerImage:
     runs-on: ubuntu-latest
-    needs: BuildAndAnalyze
+    needs: BuildAndTest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -82,5 +85,3 @@ jobs:
         run: |
           docker build -t drprofessorowl/goodfooddelivery_restaurant:latest .
           docker push drprofessorowl/goodfooddelivery_restaurant:latest
-
-
