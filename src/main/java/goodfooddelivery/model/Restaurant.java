@@ -1,11 +1,15 @@
 package goodfooddelivery.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table(name = "Restaurant")
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Restaurant {
 
     @Id
@@ -16,42 +20,5 @@ public class Restaurant {
     private String name;
     @Column(name = "Description", columnDefinition = "text")
     private String description;
-
-
-    public Restaurant(Long restaurantId, String name, String description)
-    {
-        this.restaurantId = restaurantId;
-        this.name = name;
-        this.description = description;
-    }
-
-
-    public Restaurant()
-    {
-    }
-
-    public Long getRestaurantId() {
-        return restaurantId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setRestaurantId(Long restaurantId) {
-        this.restaurantId = restaurantId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
 

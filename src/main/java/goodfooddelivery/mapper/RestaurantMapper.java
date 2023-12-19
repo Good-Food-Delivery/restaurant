@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 public interface RestaurantMapper {
     RestaurantMapper INSTANCE = Mappers.getMapper(RestaurantMapper.class);
 
-    RestaurantResponseDTO toVideoResponseDTO(Restaurant restaurant);
+    RestaurantResponseDTO toRestaurantResponseDTO(Restaurant restaurant);
 
 }
 

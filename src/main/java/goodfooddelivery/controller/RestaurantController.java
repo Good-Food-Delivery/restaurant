@@ -17,7 +17,7 @@ public class RestaurantController {
 
     @GetMapping("/get/{id}")
     public ResponseEntity<RestaurantResponseDTO> getRestaurant(@PathVariable(value = "id") Long id) {
-        RestaurantResponseDTO restaurant = RestaurantMapper.INSTANCE.toVideoResponseDTO(restaurantService.getRestaurant(id));
+        RestaurantResponseDTO restaurant = RestaurantMapper.INSTANCE.toRestaurantResponseDTO(restaurantService.getRestaurant(id));
 
         if(restaurant != null) {
             return ResponseEntity.ok().body(restaurant);
