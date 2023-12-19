@@ -1,5 +1,5 @@
 FROM openjdk:17-alpine
 WORKDIR /app
-COPY spring-boot-0.0.1-SNAPSHOT.jar /app/spring-boot-0.0.1-SNAPSHOT.jar
+COPY restaurant-service-0.0.1-SNAPSHOT.jar /app/restaurant-service-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","spring-boot-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","restaurant-service-0.0.1-SNAPSHOT.jar"]
