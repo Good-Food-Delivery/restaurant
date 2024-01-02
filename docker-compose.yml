@@ -1,14 +1,15 @@
 version: '3.1'
 
 services:
-  docker-mysql:
+  restaurant-database:
     image: mysql:latest
     ports:
-      - 3306:3306
+      - 3308:3308
     environment:
       - MYSQL_ROOT_PASSWORD=12345
       - MYSQL_DATABASE=restaurant
       - MYSQL_PASSWORD=12345
+      - MYSQL_TCP_PORT=3308
 
   spring-boot-jpa-docker-webapp:
     environment:
@@ -16,12 +17,12 @@ services:
       - spring.datasource.password=12345
       - spring.jpa.hibernate.dll-auto=update
       - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-      - spring.datasource.url=jdbc:mysql://docker-mysql:3306/restaurant?createDatabaseIfNotExist=true
+      - spring.datasource.url=jdbc:mysql://restaurant-database:3308/restaurant?createDatabaseIfNotExist=true
     build:
       context: ./
       dockerfile: Dockerfile
     depends_on:
-      - docker-mysql
+      - restaurant-database
     ports:
       - 8080:8080
     restart: on-failure

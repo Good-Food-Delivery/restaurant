@@ -33,8 +33,6 @@ dependencies {
 	annotationProcessor  'org.mapstruct:mapstruct-processor:1.5.5.Final'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-	//docker run --name restaurant -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=12345 -p 3366:3306 -d mysql/mysql-server:latest
 }
 
 tasks.named('test') {

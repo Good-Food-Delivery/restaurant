@@ -12,11 +12,11 @@ import java.util.Optional;
 public class RestaurantService implements IRestaurantService {
 
     @Autowired
-    RestaurantRepository restaurantRepository;
+    RestaurantRepository repository;
 
     public Restaurant getRestaurant(Long id)
     {
-        Optional<Restaurant> optionalRestaurant= restaurantRepository.findById(id);
+        Optional<Restaurant> optionalRestaurant= repository.findById(id);
 
         if(optionalRestaurant.isPresent()) {
             return optionalRestaurant.get();
@@ -24,6 +24,19 @@ public class RestaurantService implements IRestaurantService {
         else
         {
             return null;
+        }
+    }
+
+    public void saveRestaurant(Restaurant restaurant)
+    {
+        if (restaurant == null) {
+            throw new IllegalArgumentException("Restaurant object cannot be null");
+        }
+
+        try {
+            repository.save(restaurant);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to save the restaurant", e);
         }
     }
 
